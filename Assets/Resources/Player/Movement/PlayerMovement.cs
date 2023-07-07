@@ -24,6 +24,8 @@ public class PlayerMovement : MonoBehaviour
 
     private void Start()
     {
+        playerCamera = Camera.main;
+        
         _velocity = new Vector3();
         if (playerCamera == null)
         {
