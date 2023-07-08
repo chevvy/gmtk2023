@@ -10,7 +10,7 @@ public class Inventory : MonoBehaviour
     private readonly IWeapon[] _weapons = new IWeapon[] {};
     private IWeapon _selectedWeapon;
 
-    private HashSet<KeyColors> _keys = new HashSet<KeyColors>();
+    private HashSet<KeyColor> _keys = new HashSet<KeyColor>();
 
     public Animator animator;
     // Start is called before the first frame update
@@ -48,4 +48,15 @@ public class Inventory : MonoBehaviour
         _keys.Add(key.KeyColor);
         Debug.Log("Acquired" + key.KeyColor);
     }
+
+    public bool HasKey(KeyColor color) => _keys.Contains(color);
+
+    public void RemoveKey(KeyColor color)
+    {
+        if (!HasKey(color)) return;
+        
+        _keys.Remove(color);
+        Debug.Log("[INVENTORY] Removed key from inventory" + color);
+    } 
+
 }

@@ -1,4 +1,4 @@
 public interface IKey
 {
-    KeyColors KeyColor { get; }
+    KeyColor KeyColor { get; }
 }

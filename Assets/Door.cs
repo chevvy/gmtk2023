@@ -1,18 +1,34 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
+
 
 public class Door : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+   [FormerlySerializedAs("requiredKeyColors")] public KeyColor requiredKeyColor;
+   public Animator animator;   
+   public GameObject Player;
+   private static readonly int Open = Animator.StringToHash("Open");
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+   private void Awake()
+   {
+      if (animator == null)
+      {
+         Debug.LogError("Missing animator reference");
+      }
+   }
+
+   private void OnTriggerEnter(Collider other)
+   {
+      if (!other.gameObject.CompareTag(Player.tag)) return;
+      
+      var inventory = other.gameObject.GetComponent<Inventory>();
+      if (inventory.HasKey(requiredKeyColor))
+      {
+         inventory.RemoveKey(requiredKeyColor);
+         animator.SetTrigger(Open);
+      }
+   }
 }

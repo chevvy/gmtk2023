@@ -6,7 +6,7 @@ using UnityEngine;
 public class BlueKey : MonoBehaviour, IKey
 {
     public GameObject player;
-    public KeyColors KeyColor => KeyColors.blue;
+    public KeyColor KeyColor => KeyColor.Blue;
     
     private void OnEnable()
     {
