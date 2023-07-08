@@ -1657,7 +1657,7 @@ Animator:
   m_GameObject: {fileID: 1615561517}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 43ed2377f7beae34283f49374663975c, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -2290,6 +2290,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1774533941579513834, guid: 17ea4ddb542a15b418d26931ef55bcd5, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4233036593776522346, guid: 17ea4ddb542a15b418d26931ef55bcd5, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5151449149008629670, guid: 17ea4ddb542a15b418d26931ef55bcd5, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5456543430081107788, guid: 17ea4ddb542a15b418d26931ef55bcd5, type: 3}
       propertyPath: m_Name
       value: Player
@@ -2493,6 +2505,14 @@ PrefabInstance:
     - target: {fileID: 7452475189533368278, guid: 17ea4ddb542a15b418d26931ef55bcd5, type: 3}
       propertyPath: m_ActionEvents.Array.data[16].m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 8582329025892607672, guid: 17ea4ddb542a15b418d26931ef55bcd5, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8914499574938873475, guid: 17ea4ddb542a15b418d26931ef55bcd5, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
