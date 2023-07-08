@@ -92,9 +92,10 @@ public class PlayerMovement : MonoBehaviour
         if (Physics.Raycast(cameraTransform.position, cameraTransform.TransformDirection(Vector3.forward), out var hit, Mathf.Infinity, interactableLayer))
         {
             Debug.DrawRay(cameraTransform.position, cameraTransform.TransformDirection(Vector3.forward) * hit.distance, Color.yellow);
-
+            
             if (hit.collider.TryGetComponent(out IInteractable interactable))
             {
+                Debug.Log("INTERACTABLE FOUND" + hit.collider.name);
                 PlayerEventManager.TriggerEvent(PlayerEventManager.PlayerEvents.Hover, hit.collider.gameObject);
             }
         }
