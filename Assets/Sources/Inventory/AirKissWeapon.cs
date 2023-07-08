@@ -17,8 +17,6 @@ public class AirKissWeapon : Weapon
     // public GameObject airKissProjectilePrefab;
 
     // TODO change values to correct trigger
-    public new string ChangeAnimationTrigger => "AirKiss";
-    public new string AttackAnimationTrigger => "AttackAirKiss";
     public new string Name => "AirKiss";
 
 
@@ -33,10 +31,7 @@ public class AirKissWeapon : Weapon
 
     public void Attack()
     {
-        // Vector3 position = transform.position;
-        // var airKissInstantiated = Instantiate(airKissProjectilePrefab, transform);
-        // airKissInstantiated.transform.Translate(0.0f, 0.0f, 5.0f * Time.deltaTime);
-        // // airKissInstantiated.transform.Translate(position * 2.0f * Time.deltaTime);
+
     }
     
 }
