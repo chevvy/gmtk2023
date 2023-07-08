@@ -1,9 +1,11 @@
+using System.Linq;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
     public CharacterController controller;
+    public Inventory inventory;
     public float speed = 12f;
     public float gravity = -9.81f;
     public float jumpHeight = 3f;
@@ -24,6 +26,8 @@ public class PlayerMovement : MonoBehaviour
 
     private void Start()
     {
+        playerCamera = Camera.main;
+        
         _velocity = new Vector3();
         if (playerCamera == null)
         {
@@ -59,9 +63,26 @@ public class PlayerMovement : MonoBehaviour
 
     public void OnJump(InputAction.CallbackContext context)
     {
+        if (!context.performed) return;
+        
+        _velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
+    }
+
+    public void OnWeaponSelection(InputAction.CallbackContext context)
+    {
+        if (!context.performed) return;
+        
+        var actionName = context.action.name.Last();
+        Debug.Log(actionName);
+        var weaponIndex = int.Parse(actionName.ToString());
+        inventory.OnChangeWeapon(weaponIndex);
+    }
+
+    public void OnAttack(InputAction.CallbackContext context)
+    {
         if (context.performed)
         {
-            _velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
+            inventory.OnInteractWithWeapon();
         }
     }
 
