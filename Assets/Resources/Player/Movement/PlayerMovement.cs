@@ -1,4 +1,6 @@
 using System.Linq;
+using Sources.Inventory;
+using Sources.Player;
 using UnityEngine;
 using UnityEngine.InputSystem;
 

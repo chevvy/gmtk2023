@@ -16,19 +16,27 @@ namespace Sources.Agent
         public float attackCooldownInS = 1f;
         private float _attackedLastAtInS;
 
+        public uint health = 100;
+
+        public bool pacified = false;
+
         private void Awake()
         {
+            player = GameObject.Find("Player");
+            
             Debug.Assert(gameObject.CompareTag("Agent"));
             
-            player = GameObject.Find("Player");
             navMeshAgent = GetComponent<NavMeshAgent>();
             navMeshAgent.stoppingDistance = attackRange - 5;
         }
         
         private void FixedUpdate()
         {
-            if (IsPlayerSpotted()) NavigateTowardsPlayer();
-            if (IsPlayerInRange() && IsPlayerInLos()) AttackPlayer();
+            if (!pacified)
+            {
+                if (IsPlayerSpotted()) NavigateTowardsPlayer();
+                if (IsPlayerInRange() && IsPlayerInLos()) AttackPlayer();
+            }
         }
 
         private Vector3 GetDirectionTowardsPlayer()
@@ -61,6 +69,8 @@ namespace Sources.Agent
         private void NavigateTowardsPlayer()
         {
             var destination = player.transform.position;
+            
+            Debug.Log("Navigating Towards Player!");
 
             navMeshAgent.SetDestination(destination);
         }
@@ -91,6 +101,11 @@ namespace Sources.Agent
             if (IsAttackOnCooldown()) return;
             SetAttackOnCooldown();
             SendAttackProjectileTowardsPlayer();
+        }
+
+        public void ReceiveDamage(int damage)
+        {
+            
         }
     }
 }

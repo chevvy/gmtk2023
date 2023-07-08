@@ -5,15 +5,7 @@ using UnityEngine;
 
 public class WaterWeapon : Weapon
 {
-    // Start is called before the first frame update
-    void Start()
+    public override void Attack()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }
