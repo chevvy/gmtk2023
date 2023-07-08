@@ -39,15 +39,13 @@ Shader "Unlit/Revert_Shader"
             {
                 v2f o;
                 o.vertex = UnityObjectToClipPos(v.vertex);
-                UNITY_TRANSFER_FOG(o,o.vertex);
                 return o;
             }
 
             fixed4 frag (v2f i) : SV_Target
             {
 
-                // apply fog
-                UNITY_APPLY_FOG(i.fogCoord, col);
+
                
                 return _Color;
             }
