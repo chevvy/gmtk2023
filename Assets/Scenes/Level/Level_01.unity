@@ -2581,6 +2581,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1999644060087563625, guid: 86c6de70490c46a4e90ea0fd43064a55, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 2484611518642184465, guid: 86c6de70490c46a4e90ea0fd43064a55, type: 3}
       propertyPath: m_RootOrder
       value: 7
@@ -2628,6 +2632,22 @@ PrefabInstance:
     - target: {fileID: 2777545479807962209, guid: 86c6de70490c46a4e90ea0fd43064a55, type: 3}
       propertyPath: m_Name
       value: WallButton
+      objectReference: {fileID: 0}
+    - target: {fileID: 2777545479807962209, guid: 86c6de70490c46a4e90ea0fd43064a55, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3557603172137804145, guid: 86c6de70490c46a4e90ea0fd43064a55, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6373939143583307045, guid: 86c6de70490c46a4e90ea0fd43064a55, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8325030295681684942, guid: 86c6de70490c46a4e90ea0fd43064a55, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
