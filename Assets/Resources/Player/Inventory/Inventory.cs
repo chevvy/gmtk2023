@@ -7,25 +7,27 @@ using UnityEngine;
 
 public class Inventory : MonoBehaviour
 {
-    public IWeapon[] Weapons = new IWeapon[] {};
+    private readonly IWeapon[] _weapons = new IWeapon[] {};
     private IWeapon _selectedWeapon;
+
+    private HashSet<KeyColors> _keys = new HashSet<KeyColors>();
 
     public Animator animator;
     // Start is called before the first frame update
     void Start()
     {
-        if (Weapons.Length != 0)
+        if (_weapons.Length != 0)
         {
-            _selectedWeapon = Weapons[0];
+            _selectedWeapon = _weapons[0];
         }
     }
 
     public void OnChangeWeapon(int weaponIndex)
     {
         var adjustedIndex = weaponIndex;
-        if (adjustedIndex >= Weapons.Length) return;
+        if (adjustedIndex >= _weapons.Length) return;
         
-        _selectedWeapon = Weapons[adjustedIndex];
+        _selectedWeapon = _weapons[adjustedIndex];
         animator.SetTrigger(_selectedWeapon.ChangeAnimationTrigger);
         Debug.Log("[INVENTORY] Changed to weapon index " + adjustedIndex + ", with name " + _selectedWeapon.Name);
     }
@@ -35,5 +37,15 @@ public class Inventory : MonoBehaviour
         _selectedWeapon?.Attack();
         // animator.SetTrigger(_selectedWeapon?.AttackAnimationTrigger);
         Debug.Log("[INVENTORY] attacked with weapon with name" + _selectedWeapon?.Name);
+    }
+
+    public void AddKey(IKey key)
+    {
+        if (_keys.Contains(key.KeyColor))
+        {
+            return;
+        }
+        _keys.Add(key.KeyColor);
+        Debug.Log("Acquired" + key.KeyColor);
     }
 }
