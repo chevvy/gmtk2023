@@ -3,12 +3,12 @@ using UnityEngine;
 
 namespace Sources.Inventory
 {
-    public class AirKissWeapon : Weapon
+    public class PetWeapon : Weapon
     {
-        public new string Name => "AirKiss";
-
-        public float range = 100;
-
+        public new string Name => "Pet";
+        
+        public float range = 5;
+        
         public override void Attack()
         {
             var source = gameObject.transform.position;
@@ -19,9 +19,9 @@ namespace Sources.Inventory
             if (collided && hit.collider.gameObject.CompareTag("Agent"))
             {
                 var agent = hit.collider.gameObject;
-                var kissable = agent.GetComponent<AgentKissable>();
+                var pettable = agent.GetComponent<AgentPettable>();
                 
-                kissable.ReceiveKiss();
+                pettable.ReceivePetting();
             }
         }
     }
