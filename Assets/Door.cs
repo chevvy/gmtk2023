@@ -8,13 +8,13 @@ using UnityEngine.Serialization;
 public class Door : MonoBehaviour
 {
    [FormerlySerializedAs("requiredKeyColors")] public KeyColor requiredKeyColor;
-   public Animator animator;   
+   [FormerlySerializedAs("animator")] public Animator playerAnimator;   
    [FormerlySerializedAs("Player")] public GameObject player;
    private static readonly int Open = Animator.StringToHash("Open");
 
    private void Awake()
    {
-      if (animator == null)
+      if (playerAnimator == null)
       {
          Debug.LogError("Missing animator reference");
       }
@@ -31,7 +31,7 @@ public class Door : MonoBehaviour
       if (inventory.HasKey(requiredKeyColor))
       {
          inventory.RemoveKey(requiredKeyColor);
-         animator.SetTrigger(Open);
+         playerAnimator.SetTrigger(Open);
       }
    }
 }

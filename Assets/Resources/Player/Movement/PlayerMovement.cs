@@ -95,7 +95,6 @@ public class PlayerMovement : MonoBehaviour
             
             if (hit.collider.TryGetComponent(out IInteractable interactable))
             {
-                Debug.Log("INTERACTABLE FOUND" + hit.collider.name);
                 PlayerEventManager.TriggerEvent(PlayerEventManager.PlayerEvents.Hover, hit.collider.gameObject);
             }
         }
