@@ -12,7 +12,9 @@ GameObject:
   - component: {fileID: 5456543430081107791}
   - component: {fileID: 5456543430081107793}
   - component: {fileID: 7452475189533368278}
+  - component: {fileID: 2546472096682026288}
   - component: {fileID: 1277140548521501077}
+  - component: {fileID: 3528162832272914095}
   - component: {fileID: 2281420612724464420}
   m_Layer: 0
   m_Name: Player
@@ -225,11 +227,32 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 5ac696d8-ff02-4496-8040-6e2a8e901d1c
     m_ActionName: Player/Interact[/Keyboard/e]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: d52e3636-68a1-48de-b4d1-3f5e3e903f87
+    m_ActionName: Player/Weapon 0[/Keyboard/1]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 4dafd559-a25d-4877-9355-dee68d3bee23
+    m_ActionName: Player/Weapon 1[/Keyboard/2]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!114 &2546472096682026288
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5456543430081107788}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e036fee1946694635a98af109bd4ff16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 2281420612724464420}
 --- !u!114 &1277140548521501077
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -242,8 +265,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bab460a557e1446848bcb154c2f34cf4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OnHoverMaterial: {fileID: 0}
+  OnHoverMaterial: {fileID: 2100000, guid: 60c2227e81fe14221af25160b2d720ca, type: 2}
   NotOnHoverMaterial: {fileID: 0}
+--- !u!114 &3528162832272914095
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5456543430081107788}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16b167719c0d245f68614cb06f12376d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  airKissProjectilePrefab: {fileID: 5833614490062709778, guid: 370f59387542442e483e161a9db36997, type: 3}
 --- !u!95 &2281420612724464420
 Animator:
   serializedVersion: 5
@@ -277,6 +313,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Weapon
       objectReference: {fileID: 0}
+    - target: {fileID: 7145153080223036815, guid: 1536578633386794089238d439152774, type: 3}
+      propertyPath: m_TranslationOffsets.Array.data[0].y
+      value: -1.3399999
+      objectReference: {fileID: 0}
+    - target: {fileID: 7145153080223036815, guid: 1536578633386794089238d439152774, type: 3}
+      propertyPath: m_Sources.Array.data[0].sourceTransform
+      value: 
+      objectReference: {fileID: 5456543429488645378}
     - target: {fileID: 8633295334148163607, guid: 1536578633386794089238d439152774, type: 3}
       propertyPath: m_RootOrder
       value: -1

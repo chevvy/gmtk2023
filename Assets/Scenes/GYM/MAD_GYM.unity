@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641275, b: 0.5748171, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481676, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -323,38 +323,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &178382533 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4641673272809594441, guid: 17ea4ddb542a15b418d26931ef55bcd5, type: 3}
-  m_PrefabInstance: {fileID: 1625692216}
-  m_PrefabAsset: {fileID: 0}
---- !u!1773428102 &178382535
-ParentConstraint:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 178382533}
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Weight: 1
-  m_TranslationAtRest: {x: 0, y: 0, z: 0}
-  m_RotationAtRest: {x: 0, y: 0, z: 0}
-  m_TranslationOffsets:
-  - {x: 0, y: -1.3400002, z: 0}
-  m_RotationOffsets:
-  - {x: 0, y: 0, z: 0}
-  m_AffectTranslationX: 1
-  m_AffectTranslationY: 1
-  m_AffectTranslationZ: 1
-  m_AffectRotationX: 1
-  m_AffectRotationY: 1
-  m_AffectRotationZ: 1
-  m_Active: 1
-  m_IsLocked: 0
-  m_Sources:
-  - sourceTransform: {fileID: 1625692217}
-    weight: 1
 --- !u!1001 &1625692216
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -470,13 +438,5 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 4641673272809594441, guid: 17ea4ddb542a15b418d26931ef55bcd5, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 178382535}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 17ea4ddb542a15b418d26931ef55bcd5, type: 3}
---- !u!4 &1625692217 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 5456543429488645378, guid: 17ea4ddb542a15b418d26931ef55bcd5, type: 3}
-  m_PrefabInstance: {fileID: 1625692216}
-  m_PrefabAsset: {fileID: 0}
