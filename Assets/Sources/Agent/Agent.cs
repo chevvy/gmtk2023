@@ -16,7 +16,6 @@ namespace Sources.Agent
         public float attackCooldownInS = 1f;
         private float _attackedLastAtInS;
 
-        public uint health = 100;
 
         public bool pacified = false;
 
@@ -38,6 +37,8 @@ namespace Sources.Agent
                 if (IsPlayerInRange() && IsPlayerInLos()) AttackPlayer();
             }
         }
+        
+
 
         private Vector3 GetDirectionTowardsPlayer()
         {
@@ -69,8 +70,6 @@ namespace Sources.Agent
         private void NavigateTowardsPlayer()
         {
             var destination = player.transform.position;
-            
-            Debug.Log("Navigating Towards Player!");
 
             navMeshAgent.SetDestination(destination);
         }
