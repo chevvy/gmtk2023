@@ -13,6 +13,8 @@ namespace Sources.Agent
         public Sprite happySprite;
         public Sprite angrySprite;
         public Sprite dmgSprite;
+        
+        public AudioSource hitMarkAudioSource;
 
         private void Awake()
         {
@@ -26,7 +28,7 @@ namespace Sources.Agent
             {
                 return;
             }
-            
+            hitMarkAudioSource.Play();
             StartCoroutine(TakeDamageAnim(agent));
         }
         

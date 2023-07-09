@@ -22,6 +22,8 @@ public class ChienKissable : MonoBehaviour
     public int dmgOnKiss = 50;
     public bool isPacified = false;
 
+    public AudioSource hitMarkAudioSource;
+
     private void Awake()
     {
         Debug.Assert(null != agent);
@@ -45,6 +47,7 @@ public class ChienKissable : MonoBehaviour
         {
             return;
         }
+        hitMarkAudioSource.Play();
         StartCoroutine(TakeDamageAnim());
         StartCoroutine(RigidbodyBounceBack());
         Debug.Log("Dog was kissed <3");
