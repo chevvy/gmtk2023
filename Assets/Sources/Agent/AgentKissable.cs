@@ -13,7 +13,10 @@ namespace Sources.Agent
         public Sprite happySprite;
         public Sprite angrySprite;
         public Sprite dmgSprite;
-
+        
+        public AudioSource hitMarkAudioSource;
+        public AudioSource happySound;
+        
         private void Awake()
         {
             Debug.Assert(null != agent);
@@ -22,11 +25,11 @@ namespace Sources.Agent
         public void ReceiveKiss()
         {
             takeDmgOnHealth();
+            hitMarkAudioSource.Play();
             if (agent.GetComponent<Agent>().pacified)
             {
                 return;
             }
-            
             StartCoroutine(TakeDamageAnim(agent));
         }
         
@@ -42,6 +45,8 @@ namespace Sources.Agent
             
                 var navMeshAgent = GetComponent<NavMeshAgent>();
                 navMeshAgent.enabled = false;
+                
+                happySound.Play();
             }
         }
         

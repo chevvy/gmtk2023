@@ -23,6 +23,9 @@ public class ChienKissable : MonoBehaviour
     public int dmgOnKiss = 50;
     public bool isPacified = false;
 
+    public AudioSource hitMarkAudioSource;
+    public AudioSource happySound;
+
     private void Awake()
     {
         Debug.Assert(null != agent);
@@ -42,6 +45,7 @@ public class ChienKissable : MonoBehaviour
         // agent.GetComponent<MeshRenderer>().material.color = Color.red;
         // agent.GetComponent<Agent>().pacified = true;
         takeDmgOnHealth();
+        hitMarkAudioSource.Play();
         if (isPacified)
         {
             return;
@@ -94,6 +98,8 @@ public class ChienKissable : MonoBehaviour
             
             var navMeshAgent = GetComponent<NavMeshAgent>();
             navMeshAgent.enabled = false;
+            
+            happySound.Play();
         }
     }
 
