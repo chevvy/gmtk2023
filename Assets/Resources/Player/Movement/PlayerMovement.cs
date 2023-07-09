@@ -83,7 +83,6 @@ public class PlayerMovement : MonoBehaviour
         {
             if (!walkSfx.isPlaying)
             {
-                Debug.Log("[SFX] WALKING");
                 walkSfx.Play();
             }
         }
@@ -91,7 +90,6 @@ public class PlayerMovement : MonoBehaviour
         if (context.canceled)
         {
             walkSfx.Stop();
-            Debug.Log("[SFX] NOT WALKING");
         }
     }
 
