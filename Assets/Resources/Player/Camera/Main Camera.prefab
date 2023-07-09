@@ -1712,7 +1712,7 @@ Transform:
   - {fileID: 6478451784499790278}
   - {fileID: 5313724863389087533}
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!20 &7843304781382816786
 Camera:

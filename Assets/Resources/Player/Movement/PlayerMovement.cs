@@ -1,4 +1,5 @@
 using System.Linq;
+using Sources.Inventory;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -24,6 +25,8 @@ public class PlayerMovement : MonoBehaviour
     private float _moveByXThisFrame = 0f;
     private float _moveByYThisFrame = 0f;
 
+    private Vector3 _cumulativeTrainMovement = Vector3.zero;
+
     private void Start()
     {
         playerCamera = Camera.main;
@@ -33,10 +36,9 @@ public class PlayerMovement : MonoBehaviour
         {
             Debug.LogError("Missing camera reference on PlayerMovement");
         }
-        
     }
 
-    void Update()
+    private void Update()
     {
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
 
@@ -44,7 +46,7 @@ public class PlayerMovement : MonoBehaviour
         {
             _velocity.y = -2f;
         }
-
+        
         var localTransform = transform;
         Vector3 move = localTransform.right * _moveByXThisFrame + localTransform.forward * _moveByYThisFrame;
 
@@ -52,6 +54,22 @@ public class PlayerMovement : MonoBehaviour
         
         _velocity.y += gravity * Time.deltaTime;
         controller.Move(_velocity * Time.deltaTime);
+
+        controller.Move(GetCumulativeTrainMovement());
+    }
+
+    public void AccumulateTrainMovement(Vector3 movement)
+    {
+        _cumulativeTrainMovement += movement;
+    }
+
+    public Vector3 GetCumulativeTrainMovement()
+    {
+        var movement = _cumulativeTrainMovement;
+        
+        _cumulativeTrainMovement = Vector3.zero;
+
+        return movement;
     }
 
     public void Move(InputAction.CallbackContext context)
@@ -103,6 +121,5 @@ public class PlayerMovement : MonoBehaviour
             Debug.DrawRay(cameraTransform.position, cameraTransform.TransformDirection(Vector3.forward) * 1000, Color.white);
             PlayerEventManager.TriggerEvent(PlayerEventManager.PlayerEvents.NotHover, gameObject);
         }
-        
     }
 }

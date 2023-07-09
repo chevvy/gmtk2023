@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Agent
   - Projectile
+  - TrainBase
+  - DeathMessage
   layers:
   - Default
   - TransparentFX
