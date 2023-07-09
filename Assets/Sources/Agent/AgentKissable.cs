@@ -47,13 +47,14 @@ namespace Sources.Agent
         
         IEnumerator TakeDamageAnim(GameObject agent)
         {
-            if (agent.GetComponent<Agent>().pacified) yield break;
 
             var spriteRender = GetComponent<SpriteRenderer>();
             spriteRender.sprite = dmgSprite;
         
             yield return new WaitForSeconds(0.5f);
 
+            if (agent.GetComponent<Agent>().pacified) yield break;
+            
             spriteRender.sprite = angrySprite;
         }
     }
