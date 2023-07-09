@@ -403,10 +403,6 @@ PrefabInstance:
       value: Weapon
       objectReference: {fileID: 0}
     - target: {fileID: 7145153080223036815, guid: 1536578633386794089238d439152774, type: 3}
-      propertyPath: m_TranslationOffsets.Array.data[0].y
-      value: -1.3399999
-      objectReference: {fileID: 0}
-    - target: {fileID: 7145153080223036815, guid: 1536578633386794089238d439152774, type: 3}
       propertyPath: m_Sources.Array.data[0].sourceTransform
       value: 
       objectReference: {fileID: 5456543429488645378}
