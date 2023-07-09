@@ -23,6 +23,7 @@ public class ChienKissable : MonoBehaviour
     public bool isPacified = false;
 
     public AudioSource hitMarkAudioSource;
+    public AudioSource happySound;
 
     private void Awake()
     {
@@ -43,11 +44,11 @@ public class ChienKissable : MonoBehaviour
         // agent.GetComponent<MeshRenderer>().material.color = Color.red;
         // agent.GetComponent<Agent>().pacified = true;
         takeDmgOnHealth();
+        hitMarkAudioSource.Play();
         if (isPacified)
         {
             return;
         }
-        hitMarkAudioSource.Play();
         StartCoroutine(TakeDamageAnim());
         StartCoroutine(RigidbodyBounceBack());
         Debug.Log("Dog was kissed <3");
@@ -89,6 +90,8 @@ public class ChienKissable : MonoBehaviour
             
             var navMeshAgent = GetComponent<NavMeshAgent>();
             navMeshAgent.enabled = false;
+            
+            happySound.Play();
         }
     }
     
