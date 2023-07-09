@@ -31,6 +31,7 @@ namespace Sources.Inventory
                 if (dogKissable)
                 {
                     dogKissable.ReceiveKiss();
+                    agent.GetComponent<Rigidbody>().AddForce(new Vector3(20f,20f), ForceMode.Force);
                 }
 
             }
