@@ -18,6 +18,8 @@ namespace Sources.Inventory
         private static readonly int Swap = Animator.StringToHash("Swap");
         private static readonly int WeaponIndex = Animator.StringToHash("WeaponIndex");
 
+        public AudioSource activateKey;
+
         // Start is called before the first frame update
         void Start()
         {
@@ -61,6 +63,7 @@ namespace Sources.Inventory
         public void RemoveKey(KeyColor color)
         {
             if (!HasKey(color)) return;
+            activateKey.Play();
         
             _keys.Remove(color);
             Debug.Log("[INVENTORY] Removed key from inventory" + color);

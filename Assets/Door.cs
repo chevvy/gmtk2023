@@ -14,6 +14,8 @@ public class Door : MonoBehaviour
    [FormerlySerializedAs("Player")] public GameObject player;
    private static readonly int Open = Animator.StringToHash("Open");
 
+   public AudioSource doorOpenSfx;
+
    private void Awake()
    {
       if (playerAnimator == null)
@@ -34,6 +36,7 @@ public class Door : MonoBehaviour
       {
          inventory.RemoveKey(requiredKeyColor);
          playerAnimator.SetTrigger(Open);
+         doorOpenSfx.Play();
       }
    }
 }

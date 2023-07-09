@@ -9,6 +9,8 @@ public class BlueKey : MonoBehaviour, IKey
 {
     public KeyColor KeyColor => KeyColor.Blue;
 
+    public AudioSource keyPickupSfx; 
+
     private void OnTriggerEnter(Collider other)
     {
         var playerGameObject = other.gameObject;
@@ -16,6 +18,7 @@ public class BlueKey : MonoBehaviour, IKey
         {
             var inventory = playerGameObject.GetComponent<Inventory>();
             inventory.AddKey(this);
+            keyPickupSfx.Play();
             Destroy(gameObject);
         }
     }
