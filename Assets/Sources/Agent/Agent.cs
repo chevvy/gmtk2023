@@ -15,8 +15,7 @@ namespace Sources.Agent
         public float attackRange = 20f;
         public float attackCooldownInS = 1f;
         private float _attackedLastAtInS;
-
-
+        
         public bool pacified = false;
 
         private void Awake()
@@ -38,8 +37,6 @@ namespace Sources.Agent
             }
         }
         
-
-
         private Vector3 GetDirectionTowardsPlayer()
         {
             var position = transform.position;
@@ -97,14 +94,9 @@ namespace Sources.Agent
 
         private void AttackPlayer()
         {
-            if (IsAttackOnCooldown()) return;
+            if (IsAttackOnCooldown() || pacified) return;
             SetAttackOnCooldown();
             SendAttackProjectileTowardsPlayer();
-        }
-
-        public void ReceiveDamage(int damage)
-        {
-            
         }
     }
 }

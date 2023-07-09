@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using DefaultNamespace;
 using Sources.Agent;
 using UnityEngine;
 using UnityEngine.AI;
@@ -71,10 +72,17 @@ public class ChienKissable : MonoBehaviour
     IEnumerator TakeDamageAnim()
     {
         var spriteRender = GetComponent<SpriteRenderer>();
+        
         spriteRender.sprite = dmgSprite;
         
         yield return new WaitForSeconds(0.5f);
-
+        
+        if (isPacified)
+        {
+            spriteRender.sprite = happySprite;
+            yield break;
+        }
+        
         spriteRender.sprite = angrySprite;
     }
 
@@ -83,7 +91,7 @@ public class ChienKissable : MonoBehaviour
         dogHealth -= dmgOnKiss;
         if (dogHealth <= 0)
         {
-            isPacified = true;
+            Pacify();
             Debug.Log("DOG PACIFIED and should render sprite");
             var spriteRender = GetComponent<SpriteRenderer>();
             spriteRender.sprite = happySprite;
@@ -94,6 +102,10 @@ public class ChienKissable : MonoBehaviour
             happySound.Play();
         }
     }
-    
-    
+
+    private void Pacify()
+    {
+        isPacified = true;
+        agent.GetComponent<ChienAgent>().pacified = true;
+    }
 }

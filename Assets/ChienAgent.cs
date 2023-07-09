@@ -96,7 +96,7 @@ namespace DefaultNamespace
 
         private void AttackPlayer()
         {
-            if (IsAttackOnCooldown()) return;
+            if (IsAttackOnCooldown() || pacified) return;
             SetAttackOnCooldown();
             MeleeAttackPlayer();
         }

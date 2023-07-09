@@ -7,7 +7,7 @@ namespace Sources.UI.MainMenu
     {
         public void OnButtonPlayClick()
         {
-            SceneManager.LoadScene("Scenes/Level/Level_01");
+            SceneManager.LoadScene("Scenes/LevelGreyBox/Level_01");
         }
 
         public void OnButtonCreditClick()

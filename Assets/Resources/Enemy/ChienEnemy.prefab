@@ -14,8 +14,7 @@ GameObject:
   - component: {fileID: 2796931225969538614}
   - component: {fileID: 2421067166820521881}
   - component: {fileID: 3524109399748433545}
-  - component: {fileID: -2584027263912064271}
-  - component: {fileID: 5586519944062050108}
+  - component: {fileID: 5227267233168048375}
   m_Layer: 10
   m_Name: ChienEnemy
   m_TagString: Agent
