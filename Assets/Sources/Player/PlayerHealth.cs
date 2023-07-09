@@ -1,5 +1,8 @@
 ﻿using System;
+using System.Collections;
+using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace Sources.Player
 {
@@ -15,6 +18,9 @@ namespace Sources.Player
             health = Math.Max(MinHealth, health - damage);
             
             Debug.Log("New Health: " + health);
+            
+            if (health <= MinHealth)
+                InitiateDeathSequence();
         }
 
         public void ReceiveHealing(int heal)
@@ -22,6 +28,13 @@ namespace Sources.Player
             health = Math.Min(MaxHealth, health + heal);
             
             Debug.Log("New Health: " + health);
+        }
+
+        public void InitiateDeathSequence()
+        {
+            GameObject.FindWithTag("DeathMessage").GetComponent<TextMeshProUGUI>().enabled = true;
+            
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
     }
 }
