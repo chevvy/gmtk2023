@@ -1,13 +1,18 @@
 ﻿using System.Collections;
 using UnityEngine;
+using UnityEngine.AI;
 
 namespace Sources.Agent
 {
     public class AgentKissable: MonoBehaviour
     {
         public GameObject agent;
-        public int nbOfFlash = 1;
-        public float waitForTimeInSec = 0.1f;
+        public int health = 100;
+        public int dmgOnKiss = 50;
+        
+        public Sprite happySprite;
+        public Sprite angrySprite;
+        public Sprite dmgSprite;
 
         private void Awake()
         {
@@ -16,31 +21,38 @@ namespace Sources.Agent
 
         public void ReceiveKiss()
         {
-            agent.GetComponent<MeshRenderer>().material.color = Color.red;
-            agent.GetComponent<Agent>().pacified = true;
-
-            StartCoroutine(BlinkAgent());
-            
-            Debug.Log("Agent was kissed <3");
-        }
-
-        IEnumerator BlinkAgent()
-        {
-            var renderer = agent.GetComponent<MeshRenderer>();
-            var stopTime = Time.time + 2f;
-            var initialColor = renderer.material.color;
-            var flashColor = Color.gray;
-
-            for (int i = 0; i < nbOfFlash; i++)
+            takeDmgOnHealth();
+            if (agent.GetComponent<Agent>().pacified)
             {
-                renderer.material.color = flashColor;
-
-                yield return new WaitForSeconds(waitForTimeInSec);
-
-                renderer.material.color = initialColor;
-
-                yield return new WaitForSeconds(waitForTimeInSec);
+                return;
             }
+            
+            StartCoroutine(TakeDamageAnim());
+        }
+        
+        private void takeDmgOnHealth()
+        {
+            health -= dmgOnKiss;
+            if (health <= 0)
+            {
+                agent.GetComponent<Agent>().pacified = true;
+                Debug.Log("AGENT PACIFIED and should render sprite");
+                var spriteRender = GetComponent<SpriteRenderer>();
+                spriteRender.sprite = happySprite;
+            
+                var navMeshAgent = GetComponent<NavMeshAgent>();
+                navMeshAgent.enabled = false;
+            }
+        }
+        
+        IEnumerator TakeDamageAnim()
+        {
+            var spriteRender = GetComponent<SpriteRenderer>();
+            spriteRender.sprite = dmgSprite;
+        
+            yield return new WaitForSeconds(0.5f);
+
+            spriteRender.sprite = angrySprite;
         }
     }
 }
