@@ -146,6 +146,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   agent: {fileID: 1436962897413236196}
+  forceWhenPushed: 500
+  cooldownAfterKiss: 1
 --- !u!114 &3524109399748433545
 MonoBehaviour:
   m_ObjectHideFlags: 0

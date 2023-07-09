@@ -1,3 +1,4 @@
+using System;
 using Sources.Player;
 using UnityEngine;
 using UnityEngine.AI;
@@ -68,9 +69,12 @@ namespace DefaultNamespace
 
         private void NavigateTowardsPlayer()
         {
-            var destination = player.transform.position;
 
-            navMeshAgent.SetDestination(destination);
+            if (navMeshAgent.isOnNavMesh)
+            {
+                var destination = player.transform.position;
+                navMeshAgent.SetDestination(destination);
+            }
         }
 
         private bool IsAttackOnCooldown()
@@ -96,10 +100,7 @@ namespace DefaultNamespace
             SetAttackOnCooldown();
             MeleeAttackPlayer();
         }
-
-        // public void ReceiveDamage(int damage)
-        // {
-        //     GetComponent<Rigidbody>().AddForceAtPosition();
-        // }
+        
+        
     }
 }
