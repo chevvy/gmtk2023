@@ -27,7 +27,7 @@ namespace Sources.Agent
                 return;
             }
             
-            StartCoroutine(TakeDamageAnim());
+            StartCoroutine(TakeDamageAnim(agent));
         }
         
         private void takeDmgOnHealth()
@@ -45,8 +45,10 @@ namespace Sources.Agent
             }
         }
         
-        IEnumerator TakeDamageAnim()
+        IEnumerator TakeDamageAnim(GameObject agent)
         {
+            if (agent.GetComponent<Agent>().pacified) yield break;
+
             var spriteRender = GetComponent<SpriteRenderer>();
             spriteRender.sprite = dmgSprite;
         
