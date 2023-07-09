@@ -27,6 +27,8 @@ public class PlayerMovement : MonoBehaviour
 
     private Vector3 _cumulativeTrainMovement = Vector3.zero;
 
+    public AudioSource walkSfx;
+
     private void Start()
     {
         playerCamera = Camera.main;
@@ -77,13 +79,33 @@ public class PlayerMovement : MonoBehaviour
         Vector2 moveVec = context.ReadValue<Vector2>();
         _moveByXThisFrame = moveVec.x;
         _moveByYThisFrame = moveVec.y;
+        if (context.performed)
+        {
+            if (!walkSfx.isPlaying)
+            {
+                Debug.Log("[SFX] WALKING");
+                walkSfx.Play();
+            }
+        }
+
+        if (context.canceled)
+        {
+            walkSfx.Stop();
+            Debug.Log("[SFX] NOT WALKING");
+        }
     }
 
     public void OnJump(InputAction.CallbackContext context)
     {
-        if (!context.performed) return;
-        
-        _velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
+        // if (!context.performed) return;
+
+        if (context.performed)
+        {
+            _velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
+   
+        }
+
+       
     }
 
     public void OnWeaponSelection(InputAction.CallbackContext context)
