@@ -146,8 +146,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   agent: {fileID: 1436962897413236196}
-  forceWhenPushed: 500
-  cooldownAfterKiss: 1
+  forceWhenPushed: 50
+  cooldownAfterKiss: 0.5
+  happySprite: {fileID: 330050742, guid: c8b18905a8d70164ab999b04bcedb567, type: 3}
+  AngrySprite: {fileID: -2141467859, guid: c8b18905a8d70164ab999b04bcedb567, type: 3}
+  DmgSprite: {fileID: -110632923, guid: c8b18905a8d70164ab999b04bcedb567, type: 3}
 --- !u!114 &3524109399748433545
 MonoBehaviour:
   m_ObjectHideFlags: 0

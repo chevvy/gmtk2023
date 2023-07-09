@@ -100,7 +100,6 @@ namespace DefaultNamespace
             SetAttackOnCooldown();
             MeleeAttackPlayer();
         }
-        
-        
+
     }
 }

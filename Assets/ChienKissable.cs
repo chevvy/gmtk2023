@@ -14,6 +14,13 @@ public class ChienKissable : MonoBehaviour
     private Rigidbody _rigidbody;
     [FormerlySerializedAs("ForceWhenPushed")] public int forceWhenPushed = 100;
     public float cooldownAfterKiss = 1f;
+    public Sprite happySprite;
+    [FormerlySerializedAs("AngrySprite")] public Sprite angrySprite;
+    [FormerlySerializedAs("DmgSprite")] public Sprite dmgSprite;
+
+    public int dogHealth = 100;
+    public int dmgOnKiss = 50;
+    public bool isPacified = false;
 
     private void Awake()
     {
@@ -33,6 +40,12 @@ public class ChienKissable : MonoBehaviour
     {
         // agent.GetComponent<MeshRenderer>().material.color = Color.red;
         // agent.GetComponent<Agent>().pacified = true;
+        takeDmgOnHealth();
+        if (isPacified)
+        {
+            return;
+        }
+        StartCoroutine(TakeDamageAnim());
         StartCoroutine(RigidbodyBounceBack());
         Debug.Log("Dog was kissed <3");
     }
@@ -49,6 +62,31 @@ public class ChienKissable : MonoBehaviour
         _rigidbody.isKinematic = true;
         _shouldApplyForce = false;
         navMeshAgent.enabled = true;
+    }
+
+    IEnumerator TakeDamageAnim()
+    {
+        var spriteRender = GetComponent<SpriteRenderer>();
+        spriteRender.sprite = dmgSprite;
+        
+        yield return new WaitForSeconds(0.5f);
+
+        spriteRender.sprite = angrySprite;
+    }
+
+    public void takeDmgOnHealth()
+    {
+        dogHealth -= dmgOnKiss;
+        if (dogHealth <= 0)
+        {
+            isPacified = true;
+            Debug.Log("DOG PACIFIED and should render sprite");
+            var spriteRender = GetComponent<SpriteRenderer>();
+            spriteRender.sprite = happySprite;
+            
+            var navMeshAgent = GetComponent<NavMeshAgent>();
+            navMeshAgent.enabled = false;
+        }
     }
     
     
