@@ -143,9 +143,9 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.1, y: 0.1}
       m_Offset: {x: 0, y: 0}
-      m_Rotation: 0
+      m_Rotation: 90
       m_Anchor: 9
     m_Material: {fileID: 0}
     m_SubmeshIndex: 0
@@ -208,10 +208,10 @@ MonoBehaviour:
   - {x: 4, y: 3}
   - {x: 0, y: -1}
   - {x: 4, y: -1}
-  - {x: 0, y: -10}
-  - {x: -40, y: -10}
-  - {x: 0, y: 30}
-  - {x: -40, y: 30}
+  - {x: -4, y: -0.9999999}
+  - {x: -4, y: 3}
+  - {x: -0.00000011920929, y: -1}
+  - {x: 0, y: 3}
   m_Textures2: []
   m_Textures3: []
   m_Tangents:
@@ -235,10 +235,10 @@ MonoBehaviour:
   - {x: 1, y: 0, z: 0, w: -1}
   - {x: 1, y: 0, z: 0, w: -1}
   - {x: 1, y: 0, z: 0, w: -1}
-  - {x: -1, y: 0, z: 0, w: -1}
-  - {x: -1, y: 0, z: 0, w: -1}
-  - {x: -1, y: 0, z: 0, w: -1}
-  - {x: -1, y: 0, z: 0, w: -1}
+  - {x: 1, y: 0, z: 0, w: 1}
+  - {x: 1, y: 0, z: 0, w: 1}
+  - {x: 1, y: 0, z: 0, w: 1}
+  - {x: 1, y: 0, z: 0, w: 1}
   m_Colors: []
   m_UnwrapParameters:
     m_HardAngle: 88
@@ -248,7 +248,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 5194
+  m_VersionIndex: 5235
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -495,7 +495,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.125, y: 0.125}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -560,10 +560,10 @@ MonoBehaviour:
   - {x: 4, y: 3}
   - {x: 0, y: -1}
   - {x: 4, y: -1}
-  - {x: 0, y: -10}
-  - {x: -40, y: -10}
-  - {x: 0, y: 30}
-  - {x: -40, y: 30}
+  - {x: 0, y: -1.25}
+  - {x: -5, y: -1.25}
+  - {x: 0, y: 3.75}
+  - {x: -5, y: 3.75}
   m_Textures2: []
   m_Textures3: []
   m_Tangents:
@@ -600,7 +600,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 5191
+  m_VersionIndex: 5207
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -735,5 +735,5 @@ Transform:
   - {fileID: 2182823715690925225}
   - {fileID: 7989494788386829385}
   m_Father: {fileID: 0}
-  m_RootOrder: 33
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
