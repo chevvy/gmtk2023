@@ -32,7 +32,7 @@ namespace Sources.Player
 
         public void InitiateDeathSequence()
         {
-            GameObject.FindWithTag("DeathMessage").GetComponent<TextMeshProUGUI>().enabled = true;
+            GameObject.Find("DeathMessage").GetComponent<TextMeshProUGUI>().enabled = true;
             
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
