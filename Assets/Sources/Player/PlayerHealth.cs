@@ -13,9 +13,13 @@ namespace Sources.Player
         
         public int health = MaxHealth;
 
+        public AudioSource hurtSfx;
+
         public void ReceiveDamage(int damage)
         {
             health = Math.Max(MinHealth, health - damage);
+            
+            hurtSfx.Play();
             
             Debug.Log("New Health: " + health);
             
