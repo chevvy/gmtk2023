@@ -19,9 +19,20 @@ namespace Sources.Inventory
             if (collided && hit.collider.gameObject.CompareTag("Agent"))
             {
                 var agent = hit.collider.gameObject;
-                var kissable = agent.GetComponent<AgentKissable>();
                 
-                kissable.ReceiveKiss();
+                var agentKissable = agent.GetComponent<AgentKissable>();
+                if (agentKissable)
+                {
+                    agentKissable.ReceiveKiss();
+                    return;
+                }
+
+                var dogKissable = agent.GetComponent<ChienKissable>();
+                if (dogKissable)
+                {
+                    dogKissable.ReceiveKiss();
+                }
+
             }
         }
     }

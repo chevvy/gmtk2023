@@ -1,20 +1,20 @@
-﻿using UnityEngine;
+using Sources.Player;
+using UnityEngine;
 using UnityEngine.AI;
 
-namespace Sources.Agent
+namespace DefaultNamespace
 {
-    public class Agent : MonoBehaviour
+    public class ChienAgent: MonoBehaviour
     {
         public GameObject player;
         private bool _playerSpotted;
 
         public NavMeshAgent navMeshAgent;
-
-        public GameObject projectilePrefab;
-        public float projectileLifetimeInS = 10f;
-        public float attackRange = 20f;
+        
+        public float attackRange = 5f;
         public float attackCooldownInS = 1f;
         private float _attackedLastAtInS;
+        public int meleeDamage = 25; 
 
         public uint health = 100;
 
@@ -83,27 +83,23 @@ namespace Sources.Agent
             _attackedLastAtInS = Time.time;
         }
 
-        private void SendAttackProjectileTowardsPlayer()
+        private void MeleeAttackPlayer()
         {
-            var projectile = Instantiate(projectilePrefab, transform.position, Quaternion.identity);
-            var rigidbody = projectile.GetComponent<Rigidbody>();
-            var force = Vector3.Normalize(GetDirectionTowardsPlayer()) * 10 + Vector3.Normalize(transform.up) * 5;
-            
-            rigidbody.AddRelativeForce(force, ForceMode.Impulse);
-            
-            Destroy(projectile, projectileLifetimeInS);
+            // Trigger animation for movement of sprite
+            player.GetComponent<PlayerHealth>().ReceiveDamage(meleeDamage);
+            Debug.Log("Player damaged by " + meleeDamage);
         }
 
         private void AttackPlayer()
         {
             if (IsAttackOnCooldown()) return;
             SetAttackOnCooldown();
-            SendAttackProjectileTowardsPlayer();
+            MeleeAttackPlayer();
         }
 
-        public void ReceiveDamage(int damage)
-        {
-            
-        }
+        // public void ReceiveDamage(int damage)
+        // {
+        //     GetComponent<Rigidbody>().AddForceAtPosition();
+        // }
     }
 }

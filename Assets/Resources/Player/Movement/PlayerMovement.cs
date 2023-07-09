@@ -49,7 +49,7 @@ public class PlayerMovement : MonoBehaviour
 
         var localTransform = transform;
         Vector3 move = localTransform.right * _moveByXThisFrame + localTransform.forward * _moveByYThisFrame;
-
+        
         controller.Move(move * speed * Time.deltaTime);
         
         _velocity.y += gravity * Time.deltaTime;
