@@ -10,7 +10,8 @@ public class TrainBehavior : MonoBehaviour
     private GameObject moving;
     private Vector3 previous;
     private PlayerMovement controller;
-
+    private bool _movePlayer = false;
+    
     void Start()
     {
         animator = GetComponent<Animator>();
@@ -23,12 +24,14 @@ public class TrainBehavior : MonoBehaviour
     {
         if (!other.CompareTag("Player")) return;
 
+        _movePlayer = true;
+
         animator.SetTrigger("Go");
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
-        controller.AccumulateTrainMovement(SampleTrainMovement());
+        if (_movePlayer) controller.AccumulateTrainMovement(SampleTrainMovement());
     }
 
     private Vector3 SampleTrainMovement()
