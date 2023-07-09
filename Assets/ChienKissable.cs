@@ -32,7 +32,7 @@ public class ChienKissable : MonoBehaviour
     {
         if (_shouldApplyForce)
         {
-            _rigidbody.AddForce(Vector3.left * forceWhenPushed, ForceMode.Force);
+            _rigidbody?.AddForce(Vector3.left * forceWhenPushed, ForceMode.Force);
         }
     }
 
