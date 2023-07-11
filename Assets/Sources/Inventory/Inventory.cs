@@ -20,6 +20,8 @@ namespace Sources.Inventory
 
         public AudioSource activateKey;
 
+        public bool displayDebugInfo = false;
+
         // Start is called before the first frame update
         void Start()
         {
@@ -45,7 +47,8 @@ namespace Sources.Inventory
         {
             _selectedWeapon?.Attack();
             animator.SetTrigger(Attack);
-            Debug.Log("[INVENTORY] attacked with weapon with name" + _selectedWeapon?.Name);
+            
+            DisplayDebugMessage("[INVENTORY] attacked with weapon with name" + _selectedWeapon?.Name);
         }
 
         public void AddKey(IKey key)
@@ -55,7 +58,7 @@ namespace Sources.Inventory
                 return;
             }
             _keys.Add(key.KeyColor);
-            Debug.Log("Acquired" + key.KeyColor);
+            DisplayDebugMessage("Acquired" + key.KeyColor);
         }
 
         public bool HasKey(KeyColor color) => _keys.Contains(color);
@@ -66,7 +69,17 @@ namespace Sources.Inventory
             activateKey.Play();
         
             _keys.Remove(color);
-            Debug.Log("[INVENTORY] Removed key from inventory" + color);
+            DisplayDebugMessage("Removed key from inventory");
+        }
+
+        private void DisplayDebugMessage(string debugMsg)
+        {
+            if (!displayDebugInfo)
+            {
+                return;
+            }
+            
+            Debug.Log("[INVENTORY]" + debugMsg);
         }
     }
 }

@@ -28,6 +28,9 @@ public class PlayerMovement : MonoBehaviour
     private Vector3 _cumulativeTrainMovement = Vector3.zero;
 
     public AudioSource walkSfx;
+    public AudioSource mainMusic;
+
+    public bool displayDebugInfo;
 
     private void Start()
     {
@@ -37,6 +40,11 @@ public class PlayerMovement : MonoBehaviour
         if (playerCamera == null)
         {
             Debug.LogError("Missing camera reference on PlayerMovement");
+        }
+
+        if (Debug.isDebugBuild)
+        {
+            mainMusic.Stop();
         }
     }
 
@@ -111,7 +119,7 @@ public class PlayerMovement : MonoBehaviour
         if (!context.performed) return;
         
         var actionName = context.action.name.Last();
-        Debug.Log(actionName);
+        DisplayDebugMessage("Selected weapon " + actionName);
         var weaponIndex = int.Parse(actionName.ToString());
         inventory.OnChangeWeapon(weaponIndex);
     }
@@ -141,5 +149,16 @@ public class PlayerMovement : MonoBehaviour
             Debug.DrawRay(cameraTransform.position, cameraTransform.TransformDirection(Vector3.forward) * 1000, Color.white);
             PlayerEventManager.TriggerEvent(PlayerEventManager.PlayerEvents.NotHover, gameObject);
         }
+    }
+
+    public void DisplayDebugMessage(string debugMsg)
+    {
+        if (!displayDebugInfo)
+        {
+            return;
+        }
+        
+        DisplayDebugMessage("[PlayerMovement] " + debugMsg);
+        
     }
 }
