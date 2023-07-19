@@ -19,7 +19,6 @@ GameObject:
   - component: {fileID: 3528162832272914095}
   - component: {fileID: 765382159672274792}
   - component: {fileID: 7871537485682268153}
-  - component: {fileID: 4927728643110872091}
   - component: {fileID: 3303402601255759417}
   - component: {fileID: 2169817154301475705}
   - component: {fileID: 1342830593972068155}
@@ -104,6 +103,7 @@ MonoBehaviour:
     m_Bits: 128
   playerCamera: {fileID: 5456543429488645379}
   walkSfx: {fileID: 2169817154301475705}
+  mainMusic: {fileID: 220971113345300190}
 --- !u!114 &7452475189533368278
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -443,20 +443,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   range: 5
---- !u!114 &4927728643110872091
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5456543430081107788}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bab460a557e1446848bcb154c2f34cf4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  OnHoverMaterial: {fileID: 0}
-  NotOnHoverMaterial: {fileID: 0}
 --- !u!114 &3303402601255759417
 MonoBehaviour:
   m_ObjectHideFlags: 0
